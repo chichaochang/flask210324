@@ -1,6 +1,7 @@
 from flask import Flask
 from flask import request
 from flask import render_template
+from datetime import datetime
 
 app = Flask(__name__)
 
@@ -29,8 +30,9 @@ def hello():
 
 
 @app.route('/hello/<string:name>')
-def hello01(name):
-    return '{}，歡迎來到這個頁面'.format(name)
+def hello03(name):
+    now = datetime.now()
+    return render_template('hello3.html', **locals())
 
 
 if __name__ == '__main__':
